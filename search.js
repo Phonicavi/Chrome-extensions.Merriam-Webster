@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     request.onreadystatechange = function() {
       if (request.readyState == 4 && request.status == 200) {
         processResponse(request.responseText);
+      } else if (request.readyState == 4 && request.status != 200) {
+        setChildTextNode('content', "not found");
       } else {
         setChildTextNode('content', "loading...");
       }
